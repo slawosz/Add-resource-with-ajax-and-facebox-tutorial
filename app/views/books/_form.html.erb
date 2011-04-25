@@ -5,7 +5,7 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :author_tokens, "Authors" %><br />
+    <%= f.label :author_tokens, "Authors" %><%= link_to 'Add new author', new_author_path, :remote => true %><br />
     <%= f.text_field :author_tokens, "data-pre" => @book.authors.map(&:attributes).to_json %>
   </p>
   <p><%= f.submit %></p>

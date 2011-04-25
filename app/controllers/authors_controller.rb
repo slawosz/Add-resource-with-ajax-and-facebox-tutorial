@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.where("name like ?", "%#{params[:q]}%")
+    @authors = Author.where("name ilike ?", "%#{params[:q]}%")
     respond_to do |format|
       format.html
       format.json { render :json => @authors.map(&:attributes) }
@@ -18,9 +18,15 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new(params[:author])
     if @author.save
-      redirect_to @author, :notice => "Successfully created author."
+      respond_to do |format|
+        format.html { redirect_to @author, :notice => "Successfully created author." }
+        format.js
+      end
     else
-      render :action => 'new'
+      respond_to do |format|
+        format.html { render :action => 'new' }
+        format.js
+      end
     end
   end
 
