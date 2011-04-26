@@ -1,0 +1,3 @@
+Code for my "blog post":http://slawosz.github.com/2011/04/26/add-new-resource-with-ajax/
+
+Please note, that I have change LIKE statement to ILIKE in app/controllers/authors_controller.rb:3, becouse heroku uses postgresql and this app is "deployed on heroku":http://add-new-resource-with-ajax.heroku.com/
